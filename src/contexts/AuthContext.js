@@ -9,7 +9,7 @@ import { auth } from '../config/firebase';
 import { doc, setDoc, getDoc } from 'firebase/firestore';
 import { db } from '../config/firebase';
 
-const AuthContext = createContext();
+const AuthContext = createContext({});
 
 export function useAuth() {
     return useContext(AuthContext);
@@ -54,7 +54,7 @@ export function AuthProvider({ children }) {
     }
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
+        const unsubscribe = onAuthStateChanged(auth, async (user) => {
             setUser(user);
             setLoading(false);
         });
@@ -64,10 +64,10 @@ export function AuthProvider({ children }) {
 
     const value = {
         user,
+        isAuthenticated: !!user,
         signup,
         login,
         logout,
-        isAuthenticated: !!user
     };
 
     return (
