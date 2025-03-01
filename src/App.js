@@ -213,7 +213,7 @@ function App() {
                 maxSnack={3}
                 autoHideDuration={3000}
                 anchorOrigin={{
-                    vertical: 'bottom',
+                    vertical: 'top',
                     horizontal: 'center',
                 }}
             >

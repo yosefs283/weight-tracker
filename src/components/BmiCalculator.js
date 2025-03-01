@@ -135,7 +135,7 @@ function BmiCalculator({ entries, height }) {
                                 elevation={0}
                                 sx={{
                                     p: 2,
-                                    bgcolor: 'grey.50',
+                                    bgcolor: theme => theme.palette.mode === 'dark' ? 'grey.800' : 'grey.50',
                                     borderLeft: 4,
                                     borderColor: item.color,
                                     borderRadius: 1
